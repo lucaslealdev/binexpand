@@ -26,7 +26,9 @@ def get_bin_file_from_cue(cue_file_path):
     with open(cue_file_path, 'r') as f:
         for line in f:
             if line.strip().startswith('FILE'):
-                return line.split('"')[1]
+                bin_file = line.split('"')[1]
+                # Join with cue file directory to get full path
+                return os.path.join(os.path.dirname(cue_file_path), bin_file)
     raise ValueError("BIN file not found in CUE file")
 
 def update_cue_file(cue_file_path, output_bin_file, original_bin_file_size, track_count):
@@ -60,7 +62,7 @@ def pad_bin_cue(cue_file, output_bin_file):
     padding_size = cd_size - original_size
 
     if padding_size > 0:
-        dummy_file = 'dummy_track.bin'
+        dummy_file = os.path.join(os.path.dirname(cue_file), 'dummy_track.bin')
         create_dummy_file(dummy_file, padding_size)
         append_files(bin_file, dummy_file, output_bin_file)
 
@@ -95,8 +97,8 @@ def main():
     parser.add_argument("cue_file", help="The path to the CUE file.")
     args = parser.parse_args()
 
-    cue_file = args.cue_file
-    output_bin_file = 'padded_image.bin'
+    cue_file = os.path.abspath(args.cue_file)
+    output_bin_file = os.path.join(os.path.dirname(cue_file), 'padded_image.bin')
     
     pad_bin_cue(cue_file, output_bin_file)
     
