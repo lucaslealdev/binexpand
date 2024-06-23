@@ -12,33 +12,15 @@ This project contains a Python script that pads a BIN file to occupy an entire C
 
 ## Requirements
 
-- Python 3.x
-- Windows
+- Windows 7 or above
 
 ## Installation
 
-1. **Download the files**:
-    - Clone the repository or [download as zip](https://github.com/lucaslealdev/binexpand/archive/refs/heads/main.zip)
-
-2. **Set up the Windows Context Menu**:
-    - Place the `expand.py` script in the `C:\binexpand\` directory.
-    - Run the `context_menu.reg` file to add the "Expand Disc" option to the context menu for .CUE files.
+1. Go to the [releases](https://github.com/lucaslealdev/binexpand/releases) page
+2. Download the most recent installer
+3. Run the installer and follow the instructions
 
 ## Usage
-
-### Via Command Line
-
-1. Navigate to the script directory:
-    ```sh
-    cd path/to/the/script
-    ```
-
-2. Execute the script passing the path to the .CUE file:
-    ```sh
-    python expand.py path/to/the/file.cue
-    ```
-
-### Via Windows Context Menu
 
 1. Right-click on a .CUE file.
 2. Select the **"Expand Disc"** option.
