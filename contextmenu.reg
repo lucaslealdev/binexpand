@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+; Adicionar opção "Expand to 700mb" ao menu de contexto de arquivos .CUE
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.cue\shell\Expand to 700mb]
+@="Expand to 700mb"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.cue\shell\Expand to 700mb\command]
+@="py c:\\binexpand\\expand.py \"%1\""
